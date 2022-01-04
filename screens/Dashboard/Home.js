@@ -14,6 +14,7 @@ import {
   VerticalCourseCard,
   LineDivider,
   CategoryCard,
+  HorizontalCourseCard,
 } from '../../components';
 
 import {COLORS, FONTS, SIZES, icons, images, dummyData} from '../../constants';
@@ -137,6 +138,29 @@ const Home = () => {
     </Section>
   );
 
+  const renderPopularCourse = () => (
+    <Section
+      title="Popular Courses"
+      containerStyle={styles.popularCourseSection}>
+      <FlatList
+        data={dummyData.courses_list_2}
+        listKey="PoppularCourse"
+        scrollEnabled={false}
+        keyExtractor={item => `PopularCourse-${item.id}`}
+        contentContainerStyle={styles.popularCourseList}
+        renderItem={({item, index}) => (
+          <HorizontalCourseCard
+            course={item}
+            containerStyle={styles.popularCourseItem(index)}
+          />
+        )}
+        ItemSeparatorComponent={() => (
+          <LineDivider style={styles.popularCourseDivider} />
+        )}
+      />
+    </Section>
+  );
+
   return (
     <View style={styles.homeContainer}>
       {/* Header */}
@@ -156,6 +180,9 @@ const Home = () => {
 
         {/* Categories */}
         {renderCategories()}
+
+        {/* Popular */}
+        {renderPopularCourse()}
       </ScrollView>
     </View>
   );
@@ -240,6 +267,20 @@ const styles = StyleSheet.create({
     marginLeft: index === 0 ? SIZES.padding : SIZES.base,
     marginRight: index === dummyData.categories.length - 1 ? SIZES.padding : 0,
   }),
+  popularCourseSection: {
+    marginTop: 30,
+  },
+  popularCourseList: {
+    marginTop: SIZES.radius,
+    paddingHorizontal: SIZES.padding,
+  },
+  popularCourseItem: index => ({
+    marginVertical: SIZES.padding,
+    marginTop: index === 0 ? SIZES.radius : SIZES.padding,
+  }),
+  popularCourseDivider: {
+    backgroundColor: COLORS.gray20,
+  },
 });
 
 export default Home;

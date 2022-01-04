@@ -4,6 +4,7 @@ import LineDivider from './LineDivider';
 import VerticalCourseCard from './VerticalCourseCard';
 import IconLabel from './IconLabel';
 import CategoryCard from './CategoryCard';
+import HorizontalCourseCard from './HorizontalCourseCard';
 
 export {
   IconButton,
@@ -12,4 +13,5 @@ export {
   IconLabel,
   LineDivider,
   CategoryCard,
+  HorizontalCourseCard,
 };
