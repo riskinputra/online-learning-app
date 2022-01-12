@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {COLORS, FONTS} from '../constants';
 
-const TextButotn = ({
+const TextButton = ({
   contentContainerStyle,
   disabled,
   label,
@@ -19,7 +19,7 @@ const TextButotn = ({
   );
 };
 
-export default TextButotn;
+export default TextButton;
 
 const styles = StyleSheet.create({
   container: contentContainerStyle => ({

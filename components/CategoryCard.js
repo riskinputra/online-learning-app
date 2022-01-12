@@ -13,7 +13,8 @@ const CategoryCard = ({category, containerStyle}) => {
       <ImageBackground
         source={category?.thumbnail}
         resizeMode="cover"
-        style={styles.container(containerStyle)}>
+        style={styles.container(containerStyle)}
+        imageStyle={styles.imageStyle}>
         <Text style={styles.title}>{category?.title}</Text>
       </ImageBackground>
     </TouchableOpacity>
@@ -34,5 +35,8 @@ const styles = StyleSheet.create({
   title: {
     color: COLORS.white,
     ...FONTS.h2,
+  },
+  imageStyle: {
+    borderRadius: SIZES.radius,
   },
 });
